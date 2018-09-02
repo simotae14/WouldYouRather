@@ -8,7 +8,7 @@ export function setAuthedUser (id) {
     };
 }
 
-export unsetAuthedUser() {
+export function unsetAuthedUser() {
     return {
         type: UNSET_AUTHED_USER
     }
