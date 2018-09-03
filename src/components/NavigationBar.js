@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
     Collapse,
     Navbar,
@@ -47,10 +47,14 @@ class NavigationBar extends Component {
                             </NavItem>
                             {
                                 authUser ? (
-                                    <NavItem>
-                                        <LoggedUser userID={authUser} />
-                                        <NavLink tag={Link} to="/" onClick={this.handleLogout}>Logout</NavLink>
-                                    </NavItem>
+                                    <Fragment>
+                                        <NavItem>
+                                            <LoggedUser userID={authUser} />
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink tag={Link} to="/" onClick={this.handleLogout}>Logout</NavLink>
+                                        </NavItem>
+                                    </Fragment>
                                 ) : (
                                     <NavItem>
                                         <NavLink tag={Link} to="/">Login</NavLink>
