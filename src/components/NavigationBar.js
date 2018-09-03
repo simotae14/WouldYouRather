@@ -12,15 +12,19 @@ import './NavigationBar.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoggedUser from './LoggedUser';
+import { unsetAuthedUser } from '../actions/authUser';
 
 class NavigationBar extends Component {
     state = {
         isOpen: false
     }
-    handleToggle = () =>  {
+    handleToggle = () => {
         this.setState({
           isOpen: !this.state.isOpen
         });
+    }
+    handleLogout = () => {
+        this.props.dispatch(unsetAuthedUser());
     }
     render() {
         const { authUser } = this.props;
@@ -45,7 +49,7 @@ class NavigationBar extends Component {
                                 authUser ? (
                                     <NavItem>
                                         <LoggedUser userID={authUser} />
-                                        <NavLink tag={Link} to="/">Logout</NavLink>
+                                        <NavLink tag={Link} to="/" onClick={this.handleLogout}>Logout</NavLink>
                                     </NavItem>
                                 ) : (
                                     <NavItem>

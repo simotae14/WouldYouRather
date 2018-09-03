@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import './LoggedUser.css';
 class LoggedUser extends Component {
     render () {
-        const { authUser } = this.props;
-        console.log('User logged', authUser)
+        const { user } = this.props;
+        console.log('User logged', user);
         return (
             <Fragment>
-                Logged
+                <img src={user.avatarURL} alt="Avatar" className="avatar" />
+                <span>Hello, { user.name }</span>
             </Fragment>
         )
     }
