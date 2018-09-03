@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import NavigationBar from './NavigationBar';
 import Login from './Login';
-
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +15,9 @@ class App extends Component {
       <Router>
         <Fragment>
           <NavigationBar />
-          <Route path='/' exact component={Login} />
+          <div className="global-container">
+            <Route path='/' exact component={Login} />
+          </div>
         </Fragment>
       </Router>
     );

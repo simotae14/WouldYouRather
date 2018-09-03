@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 class LoggedUser extends Component {
     render () {
-        const { user } = this.props;
-        console.log('User logged', user);
+        const { authUser } = this.props;
+        console.log('User logged', authUser)
         return (
             <Fragment>
                 Logged
