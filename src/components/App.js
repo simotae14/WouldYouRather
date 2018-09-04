@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import NavigationBar from './NavigationBar';
 import Login from './Login';
+import MainContainer from './MainContainer';
 import './App.css';
+import authUser from '../reducers/authUser';
 
 class App extends Component {
   componentDidMount() {
@@ -16,7 +18,13 @@ class App extends Component {
         <Fragment>
           <NavigationBar />
           <div className="global-container">
-            <Route path='/' exact component={Login} />
+            {
+              this.props.authUser ? (
+                <Route path='/' exact component={MainContainer} />
+              ) : (
+                <Route path='/' component={Login} />
+              )
+            }
           </div>
         </Fragment>
       </Router>
@@ -24,4 +32,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authUser }) {
+  return {
+    authUser
+  }
+}
+
+export default connect(mapStateToProps)(App);

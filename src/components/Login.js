@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Card, CardBody, CardText, CardTitle, CardSubtitle, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './Login.css';
 import { setAuthedUser } from '../actions/authUser';
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -18,10 +19,10 @@ class Login extends Component {
     handleLogin = (e) => {
         e.preventDefault();
         this.props.dispatch(setAuthedUser(this.state.authUser));
+        this.props.history.push('/');
     }
     render () {
         const { users } = this.props;
-        console.log('User logged', users);
         return (
             <Card className="login-form">
                 <CardBody>
