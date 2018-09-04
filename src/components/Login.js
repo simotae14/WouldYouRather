@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Card, CardBody, CardText, CardTitle, CardSubtitle, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Login.css';
 import { setAuthedUser } from '../actions/authUser';
-import { Redirect } from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -22,7 +21,6 @@ class Login extends Component {
         this.props.history.push('/');
     }
     render () {
-        const { users } = this.props;
         return (
             <Card className="login-form">
                 <CardBody>
@@ -61,7 +59,6 @@ class Login extends Component {
 // get the user object of the authUser from the store
 function mapStateToProps({ users }) {
     const usersValues = Object.keys(users).map((id) => {
-        console.log('user', id);
         return ({
             userID: users[id].id,
             userName: users[id].name

@@ -28,7 +28,6 @@ class NavigationBar extends Component {
     }
     render() {
         const { authUser } = this.props;
-        console.log('AUTH USER', authUser);
         return (
             <div>
                 <Navbar color="light" light expand="md">

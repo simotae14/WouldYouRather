@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import NavigationBar from './NavigationBar';
 import Login from './Login';
 import MainContainer from './MainContainer';
 import './App.css';
-import authUser from '../reducers/authUser';
 
 class App extends Component {
   componentDidMount() {

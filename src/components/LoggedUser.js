@@ -4,7 +4,6 @@ import './LoggedUser.css';
 class LoggedUser extends Component {
     render () {
         const { user } = this.props;
-        console.log('User logged', user);
         return (
             <Fragment>
                 <img src={user.avatarURL} alt="Avatar" className="avatar" />
