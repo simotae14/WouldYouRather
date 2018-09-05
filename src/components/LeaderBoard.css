@@ -1,0 +1,12 @@
+.img-avatar, .items-user {
+    width: 100%;
+}
+
+.partial-score {
+    display: inline-block;
+    text-align: right;
+}
+
+.score {
+    font-size: 1.2rem !important;
+}
