@@ -13,7 +13,7 @@ class VotePoll extends Component {
             optionVoted: e.target.value
         });
     }
-    //handleSaveVote (authedUser, qid, answer )
+    //handleSaveVote (authedUser, questionID, answer )
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.dispatch(handleSaveVote(this.props.question.id, this.state.optionVoted));

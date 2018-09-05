@@ -6,6 +6,7 @@ import NavigationBar from './NavigationBar';
 import Login from './Login';
 import MainContainer from './MainContainer';
 import Vote from './Vote';
+import NewPoll from './NewPoll';
 import './App.css';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Fragment>
                   <Route path='/' exact component={MainContainer} />
                   <Route path='/questions/:id' component={Vote} />
+                  <Route path='/add' component={NewPoll} />
                 </Fragment>
               ) : (
                 <Route path='/' component={Login} />
