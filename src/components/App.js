@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import NavigationBar from './NavigationBar';
@@ -8,6 +8,7 @@ import MainContainer from './MainContainer';
 import Vote from './Vote';
 import NewPoll from './NewPoll';
 import LeaderBoard from './LeaderBoard';
+import NotFound from './NotFound';
 import './App.css';
 
 class App extends Component {
@@ -22,14 +23,18 @@ class App extends Component {
           <div className="global-container">
             {
               this.props.authUser ? (
-                <Fragment>
-                  <Route path='/' exact component={MainContainer} />
-                  <Route path='/questions/:id' component={Vote} />
-                  <Route path='/add' component={NewPoll} />
-                  <Route path='/leaderboard' component={LeaderBoard} />
-                </Fragment>
+                  <Switch>
+                    <Route path='/' exact component={MainContainer} />
+                    <Route path='/questions/:id' exact component={Vote} />
+                    <Route path='/add' exact component={NewPoll} />
+                    <Route path='/leaderboard' exact component={LeaderBoard} />
+                    <Route component={NotFound} />
+                  </Switch>
               ) : (
-                <Route path='/' component={Login} />
+                <Switch>
+                  <Route path='/' exact component={Login} />
+                  <Route component={NotFound} />
+                </Switch>
               )
             }
           </div>
