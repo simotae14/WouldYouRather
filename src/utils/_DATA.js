@@ -92,7 +92,7 @@ let questions = {
     author: 'tylermcginnis',
     timestamp: 1489579767190,
     optionOne: {
-      votes: ['tylermcginnis'],
+      votes: ['tylermcginnis','sarahedo'],
       text: 'find $50 yourself',
     },
     optionTwo: {

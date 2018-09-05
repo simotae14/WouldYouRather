@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared';
 import NavigationBar from './NavigationBar';
 import Login from './Login';
 import MainContainer from './MainContainer';
+import Vote from './Vote';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +20,10 @@ class App extends Component {
           <div className="global-container">
             {
               this.props.authUser ? (
-                <Route path='/' exact component={MainContainer} />
+                <Fragment>
+                  <Route path='/' exact component={MainContainer} />
+                  <Route path='/questions/:id' component={Vote} />
+                </Fragment>
               ) : (
                 <Route path='/' component={Login} />
               )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardText, Button, Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import './Question.css';
 
 class AnsweredQuestion extends Component {
@@ -18,7 +19,9 @@ class AnsweredQuestion extends Component {
                             <ListGroupItem>{this.props.question.optionOne.text}</ListGroupItem>
                             <ListGroupItem>{this.props.question.optionTwo.text}</ListGroupItem>
                         </ListGroup>
-                        <Button className="open-btn">View Question</Button>
+                        <Link to={`/questions/${this.props.question.id}`}>
+                            <Button className="open-btn">View Question</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Card>
