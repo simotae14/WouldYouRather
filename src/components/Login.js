@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Card, CardBody, CardTitle, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Login.css';
 import { setAuthedUser } from '../actions/authUser';
+import { withLastLocation } from 'react-router-last-location';
 
 class Login extends Component {
     state = {
@@ -18,7 +19,11 @@ class Login extends Component {
     handleLogin = (e) => {
         e.preventDefault();
         this.props.dispatch(setAuthedUser(this.state.authUser));
-        this.props.history.push('/');
+        if(this.props.lastLocation !== null && this.props.lastLocation.pathname !== "/") {
+            this.props.history.push(this.props.lastLocation.pathname);
+        } else {
+            this.props.history.push('/');
+        }
     }
     render () {
         return (
@@ -69,4 +74,4 @@ function mapStateToProps({ users }) {
     }
 }
 
-export default connect(mapStateToProps)(Login);
+export default withLastLocation(connect(mapStateToProps)(Login));

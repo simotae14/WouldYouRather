@@ -10,6 +10,7 @@ import NewPoll from './NewPoll';
 import LeaderBoard from './LeaderBoard';
 import NotFound from './NotFound';
 import './App.css';
+import { LastLocationProvider } from 'react-router-last-location';
 
 class App extends Component {
   componentDidMount() {
@@ -18,27 +19,29 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Fragment>
-          <NavigationBar />
-          <div className="global-container">
-            {
-              this.props.authUser ? (
+        <LastLocationProvider>
+          <Fragment>
+            <NavigationBar />
+            <div className="global-container">
+              {
+                this.props.authUser ? (
+                    <Switch>
+                      <Route path='/' exact component={MainContainer} />
+                      <Route path='/questions/:id' exact component={Vote} />
+                      <Route path='/add' exact component={NewPoll} />
+                      <Route path='/leaderboard' exact component={LeaderBoard} />
+                      <Route component={NotFound} />
+                    </Switch>
+                ) : (
                   <Switch>
-                    <Route path='/' exact component={MainContainer} />
-                    <Route path='/questions/:id' exact component={Vote} />
-                    <Route path='/add' exact component={NewPoll} />
-                    <Route path='/leaderboard' exact component={LeaderBoard} />
+                    <Route path='/' exact component={Login} />
                     <Route component={NotFound} />
                   </Switch>
-              ) : (
-                <Switch>
-                  <Route path='/' exact component={Login} />
-                  <Route component={NotFound} />
-                </Switch>
-              )
-            }
-          </div>
-        </Fragment>
+                )
+              }
+            </div>
+          </Fragment>
+        </LastLocationProvider>
       </Router>
     );
   }
