@@ -11,6 +11,7 @@ import LeaderBoard from './LeaderBoard';
 import NotFound from './NotFound';
 import './App.css';
 import { LastLocationProvider } from 'react-router-last-location';
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <Router>
         <LastLocationProvider>
+          <LoadingBar />
           <Fragment>
             <NavigationBar />
             <div className="global-container">
