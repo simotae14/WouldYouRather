@@ -6,7 +6,7 @@ To run my project just:
 
     or
 
-    http://wiggly-downtown.surge.sh/questions/psegs1nrqhkfiq9tkphle
+    http://lying-sisters.surge.sh/
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
