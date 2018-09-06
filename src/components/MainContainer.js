@@ -67,6 +67,7 @@ function mapStateToProps({ authUser, users, questions }) {
     const unanswered = [];
     Object.keys(questions).map((keyValue) => {
         answeredKeys.includes(keyValue) ? answered.push(questions[keyValue]) : unanswered.push(questions[keyValue]);
+        return keyValue;
     });
     return {
         answered: answered.sort((a, b) => b.timestamp - a.timestamp ),
