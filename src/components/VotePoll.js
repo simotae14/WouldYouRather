@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Card, CardTitle, CardText, Col, Form, FormGroup, Row, Label, Input } from 'reactstrap';
 import { handleSaveVote } from '../actions/shared';
 import './Question.css';
+import { Redirect } from 'react-router-dom';
 
 class VotePoll extends Component {
     state = {
@@ -19,6 +20,9 @@ class VotePoll extends Component {
         this.props.dispatch(handleSaveVote(this.props.question.id, this.state.optionVoted));
     }
     render () {
+        if (!this.props.creator || this.props.creator === '') {
+            return <Redirect to='/' />
+        }
         return (
             <Card body>
                 <CardTitle>{this.props.creator.name} asks:</CardTitle>
@@ -62,7 +66,7 @@ class VotePoll extends Component {
 
 function mapStateToProps({ users, authUser }, { question }) {
     return {
-        creator: users[question.author],
+        creator: question ? users[question.author] : '',
         question,
         authUser
     };

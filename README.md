@@ -1,5 +1,13 @@
 # Would You Rather Project
 
+To run my project just:
+    npm i
+    npm start
+
+    or
+
+    http://wiggly-downtown.surge.sh/questions/psegs1nrqhkfiq9tkphle
+
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.

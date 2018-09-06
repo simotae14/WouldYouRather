@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardText, Col, Row, ListGroup, ListGroupItem, Progress } from 'reactstrap';
 import './Question.css';
+import { Redirect } from 'react-router-dom';
+
 
 class VoteDetails extends Component {
     calcPercentage = (optionValues) => {
@@ -15,6 +17,9 @@ class VoteDetails extends Component {
         return options.includes(authUser);
     }
     render () {
+        if (this.props.creator && this.props.creator !== '') {
+            return <Redirect to='/' />
+        }
         const optionOneVotes = this.props.question.optionOne.votes.length;
         const optionTwoVotes = this.props.question.optionTwo.votes.length;
 
@@ -56,7 +61,7 @@ class VoteDetails extends Component {
 
 function mapStateToProps({ users, authUser }, { question }) {
     return {
-        creator: users[question.author],
+        creator: question ? users[question.author] : '',
         question,
         authUser
     };

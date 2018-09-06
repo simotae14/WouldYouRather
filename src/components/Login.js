@@ -4,10 +4,14 @@ import { Button, Card, CardBody, CardTitle, Form, FormGroup, Label, Input } from
 import './Login.css';
 import { setAuthedUser } from '../actions/authUser';
 import { withLastLocation } from 'react-router-last-location';
+import { handleInitialData } from '../actions/shared';
 
 class Login extends Component {
     state = {
         authUser : ''
+    }
+    componentDidMount() {
+        this.props.dispatch(handleInitialData());
     }
     handleChange = (e) => {
         const userSelected = e.target.value;

@@ -10,9 +10,9 @@ class NotFound extends Component {
             <Jumbotron fluid>
                 <Container fluid>
                 <h1 className="display-3 text-center">404</h1>
-                <p className="lead">Return to
+                <p className="lead">You have to login
                 <Link to={`/`}>
-                &nbsp;home
+                &nbsp;here
                 </Link>
                 </p>
                 </Container>
