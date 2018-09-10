@@ -2,8 +2,13 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import VoteDetails from './VotedDetails';
 import VotePoll from './VotePoll';
+import { Redirect } from 'react-router-dom';
+
 
 function Vote(props) {
+    if (!props.question) {
+        return <Redirect to='/404' />
+    }
     return (
         <Fragment>
             { props.isAnswered ? (
