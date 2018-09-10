@@ -17,7 +17,7 @@ class VoteDetails extends Component {
         return options.includes(authUser);
     }
     render () {
-        if (this.props.creator && this.props.creator !== '') {
+        if (this.props.creator === '') {
             return <Redirect to='/' />
         }
         const optionOneVotes = this.props.question.optionOne.votes.length;
