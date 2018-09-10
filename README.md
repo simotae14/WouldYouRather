@@ -6,7 +6,7 @@ To run my project just:
 
     or
 
-    http://lying-sisters.surge.sh/
+    http://simotae-would-you-rather.surge.sh
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
